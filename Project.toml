@@ -3,6 +3,10 @@ uuid = "1766def0-c946-4dda-a59e-d0d07f8410f7"
 authors = ["Wonseok Shin <wsshin97@gmail.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+
 [compat]
 julia = "1"
 
