@@ -11,7 +11,7 @@ export AbsVec, AbsMat, AbsArr
 export VecBool, VecInt, VecFloat, VecComplex
 export AbsVecBool, AbsVecInt, AbsVecFloat, AbsVecComplex, AbsVecInteger, AbsVecReal, AbsVecNumber
 export MatFloat, MatComplex, AbsMatFloat, AbsMatComplex, AbsMatReal, AbsMatNumber
-export AbsArrFloat, AbsArrComplex, AbsArrInteger, AbsArrNumber
+export ArrFloat, ArrComplex, AbsArrFloat, AbsArrComplex, AbsArrInteger, AbsArrNumber
 export SVec, SBool, SFloat, SInt, SReal, SComplex, SNumber
 
 ## Type aliases
