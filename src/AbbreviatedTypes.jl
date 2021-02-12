@@ -12,7 +12,7 @@ export VecBool, VecInt, VecFloat, VecComplex
 export AbsVecBool, AbsVecInt, AbsVecFloat, AbsVecComplex, AbsVecInteger, AbsVecReal, AbsVecNumber
 export MatFloat, MatComplex, AbsMatFloat, AbsMatComplex, AbsMatReal, AbsMatNumber
 export ArrFloat, ArrComplex, AbsArrFloat, AbsArrComplex, AbsArrInteger, AbsArrNumber
-export SVec, SBool, SFloat, SInt, SReal, SComplex, SNumber
+export SVec, SBool, SFloat, SInt, SInteger, SReal, SComplex, SNumber
 
 ## Type aliases
 # Below, use Int instead of Int64 for compatibility with 32-bit systems (e.g., x86 in appveyor.yml).
