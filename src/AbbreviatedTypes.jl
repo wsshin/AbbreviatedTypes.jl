@@ -65,6 +65,7 @@ const SVec{K,T} = SVector{K,T}
 const SBool{K} = SVec{K,Bool}
 const SFloat{K} = SVec{K,Float}
 const SInt{K} = SVec{K,Int}
+const SInteger{K} = SVec{K,<:Integer}
 const SReal{K} = SVec{K,<:Real}
 const SComplex{K} = SVec{K,CFloat}
 const SNumber{K} = SVec{K,<:Number}
