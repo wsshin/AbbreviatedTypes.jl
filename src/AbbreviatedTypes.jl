@@ -13,6 +13,7 @@ export AbsVecBool, AbsVecInt, AbsVecFloat, AbsVecComplex, AbsVecInteger, AbsVecR
 export MatFloat, MatComplex, AbsMatFloat, AbsMatComplex, AbsMatReal, AbsMatNumber
 export ArrFloat, ArrComplex, AbsArrFloat, AbsArrComplex, AbsArrInteger, AbsArrNumber
 export SVec, SBool, SFloat, SInt, SInteger, SReal, SComplex, SNumber
+export SMat, SSBool, SSFloat, SSInt, SSInteger, SSReal, SSComplex, SSNumber
 
 ## Type aliases
 # Below, use Int instead of Int64 for compatibility with 32-bit systems (e.g., x86 in appveyor.yml).
@@ -61,6 +62,7 @@ const AbsArrComplex{N} = AbsArr{CFloat,N}
 const AbsArrInteger{N} = AbsArr{<:Integer,N}
 const AbsArrNumber{N} = AbsArr{<:Number,N}
 
+# Static vectors
 const SVec{K,T} = SVector{K,T}
 const SBool{K} = SVec{K,Bool}
 const SFloat{K} = SVec{K,Float}
@@ -69,5 +71,15 @@ const SInteger{K} = SVec{K,<:Integer}
 const SReal{K} = SVec{K,<:Real}
 const SComplex{K} = SVec{K,CFloat}
 const SNumber{K} = SVec{K,<:Number}
+
+# Static square matrices
+const SMat{K,K²,T} = SMatrix{K,K,T,K²}
+const SSBool{K,K²} = SMat{K,K²,Bool}
+const SSFloat{K,K²} = SMat{K,K²,Float}
+const SSInt{K,K²} = SMat{K,K²,Int}
+const SSInteger{K,K²} = SMat{K,K²,<:Integer}
+const SSReal{K,K²} = SMat{K,K²,<:Real}
+const SSComplex{K,K²} = SMat{K,K²,CFloat}
+const SSNumber{K,K²} = SMat{K,K²,<:Number}
 
 end
