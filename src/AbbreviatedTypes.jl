@@ -5,7 +5,7 @@ module AbbreviatedTypes
 using Reexport
 @reexport using StaticArrays
 
-export Float, ComplexF
+export AbsFloat, Float, ComplexF
 export Tuple2, Tuple3, Tuple23
 export AbsVec, AbsMat, AbsArr
 export VecBool, VecInt, VecFloat, VecComplexF
@@ -25,6 +25,7 @@ export SSInteger, SSReal, SSComplex, SSNumber
 
 ## Type aliases
 # Below, use Int instead of Int64 for compatibility with 32-bit systems (e.g., x86 in appveyor.yml).
+const AbsFloat = AbstractFloat
 const Float = typeof(0.0)  # use Float = Float128 for quadruple precision in the future
 const ComplexF = Complex{Float}
 
