@@ -17,11 +17,11 @@ export AbsMatInteger, AbsMatReal, AbsMatComplex, AbsMatNumber
 export ArrBool, ArrInt, ArrFloat, ArrComplexF
 export AbsArrBool, AbsArrInt, AbsArrFloat, AbsArrComplexF
 export AbsArrInteger, AbsArrReal, AbsArrComplex, AbsArrNumber
-export SVec, SSMat
+export SVec, S²Mat
 export SBool, SInt, SFloat, SComplexF
 export SInteger, SReal, SComplex, SNumber
-export SSBool, SSInt, SSFloat, SSComplexF
-export SSInteger, SSReal, SSComplex, SSNumber
+export S²Bool, S²Int, S²Float, S²ComplexF
+export S²Integer, S²Real, S²Complex, S²Number
 
 ## Type aliases
 # Below, use Int instead of Int64 for compatibility with 32-bit systems (e.g., x86 in appveyor.yml).
@@ -99,7 +99,7 @@ const AbsArrNumber{N} = AbsArr{<:Number,N}
 
 ## StaticArrays
 const SVec{K,T} = SVector{K,T}
-const SSMat{K,K²,T} = SMatrix{K,K,T,K²}  # square matrix
+const S²Mat{K,K²,T} = SMatrix{K,K,T,K²}  # square static matrix
 
 # Vectors with concrete elements
 const SBool{K} = SVec{K,Bool}
@@ -114,15 +114,15 @@ const SComplex{K} = SVec{K,<:Complex}
 const SNumber{K} = SVec{K,<:Number}
 
 # Square matrices with concrete elements
-const SSBool{K,K²} = SSMat{K,K²,Bool}
-const SSInt{K,K²} = SSMat{K,K²,Int}
-const SSFloat{K,K²} = SSMat{K,K²,Float}
-const SSComplexF{K,K²} = SSMat{K,K²,ComplexF}
+const S²Bool{K,K²} = S²Mat{K,K²,Bool}
+const S²Int{K,K²} = S²Mat{K,K²,Int}
+const S²Float{K,K²} = S²Mat{K,K²,Float}
+const S²ComplexF{K,K²} = S²Mat{K,K²,ComplexF}
 
 # Square matrices with abstract elements
-const SSInteger{K,K²} = SSMat{K,K²,<:Integer}
-const SSReal{K,K²} = SSMat{K,K²,<:Real}
-const SSComplex{K,K²} = SSMat{K,K²,<:Complex}
-const SSNumber{K,K²} = SSMat{K,K²,<:Number}
+const S²Integer{K,K²} = S²Mat{K,K²,<:Integer}
+const S²Real{K,K²} = S²Mat{K,K²,<:Real}
+const S²Complex{K,K²} = S²Mat{K,K²,<:Complex}
+const S²Number{K,K²} = S²Mat{K,K²,<:Number}
 
 end
