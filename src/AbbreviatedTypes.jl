@@ -22,6 +22,11 @@ export SBool, SInt, SFloat, SComplexF
 export SInteger, SReal, SComplex, SNumber
 export S²Bool, S²Int, S²Float, S²ComplexF
 export S²Integer, S²Real, S²Complex, S²Number
+export MVec, M²Mat
+export MBool, MInt, MFloat, MComplexF
+export MInteger, MReal, MComplex, MNumber
+export M²Bool, M²Int, M²Float, M²ComplexF
+export M²Integer, M²Real, M²Complex, M²Number
 
 ## Type aliases
 # Below, use Int instead of Int64 for compatibility with 32-bit systems (e.g., x86 in appveyor.yml).
@@ -124,5 +129,33 @@ const S²Integer{K,K²} = S²Mat{K,K²,<:Integer}
 const S²Real{K,K²} = S²Mat{K,K²,<:Real}
 const S²Complex{K,K²} = S²Mat{K,K²,<:Complex}
 const S²Number{K,K²} = S²Mat{K,K²,<:Number}
+
+## StaticArrays, mutable
+const MVec{K,T} = MVector{K,T}
+const M²Mat{K,K²,T} = MMatrix{K,K,T,K²}  # square mutable matrix
+
+# Vectors with concrete elements
+const MBool{K} = MVec{K,Bool}
+const MInt{K} = MVec{K,Int}
+const MFloat{K} = MVec{K,Float}
+const MComplexF{K} = MVec{K,ComplexF}
+
+# Vectors with abstract elements
+const MInteger{K} = MVec{K,<:Integer}
+const MReal{K} = MVec{K,<:Real}
+const MComplex{K} = MVec{K,<:Complex}
+const MNumber{K} = MVec{K,<:Number}
+
+# Square matrices with concrete elements
+const M²Bool{K,K²} = M²Mat{K,K²,Bool}
+const M²Int{K,K²} = M²Mat{K,K²,Int}
+const M²Float{K,K²} = M²Mat{K,K²,Float}
+const M²ComplexF{K,K²} = M²Mat{K,K²,ComplexF}
+
+# Square matrices with abstract elements
+const M²Integer{K,K²} = M²Mat{K,K²,<:Integer}
+const M²Real{K,K²} = M²Mat{K,K²,<:Real}
+const M²Complex{K,K²} = M²Mat{K,K²,<:Complex}
+const M²Number{K,K²} = M²Mat{K,K²,<:Number}
 
 end
