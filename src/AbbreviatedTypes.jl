@@ -118,13 +118,13 @@ const SReal{K} = SVec{K,<:Real}
 const SComplex{K} = SVec{K,<:Complex}
 const SNumber{K} = SVec{K,<:Number}
 
-# Square matrices with concrete elements
+# Square matrices with concrete elements; superscript 2 reads "square".
 const S²Bool{K,K²} = S²Mat{K,K²,Bool}
 const S²Int{K,K²} = S²Mat{K,K²,Int}
 const S²Float{K,K²} = S²Mat{K,K²,Float}
 const S²ComplexF{K,K²} = S²Mat{K,K²,ComplexF}
 
-# Square matrices with abstract elements
+# Square matrices with abstract elements; superscript 2 reads "square".
 const S²Integer{K,K²} = S²Mat{K,K²,<:Integer}
 const S²Real{K,K²} = S²Mat{K,K²,<:Real}
 const S²Complex{K,K²} = S²Mat{K,K²,<:Complex}
@@ -146,13 +146,13 @@ const MReal{K} = MVec{K,<:Real}
 const MComplex{K} = MVec{K,<:Complex}
 const MNumber{K} = MVec{K,<:Number}
 
-# Square matrices with concrete elements
+# Square matrices with concrete elements; superscript 2 reads "square".
 const M²Bool{K,K²} = M²Mat{K,K²,Bool}
 const M²Int{K,K²} = M²Mat{K,K²,Int}
 const M²Float{K,K²} = M²Mat{K,K²,Float}
 const M²ComplexF{K,K²} = M²Mat{K,K²,ComplexF}
 
-# Square matrices with abstract elements
+# Square matrices with abstract elements; superscript 2 reads "square".
 const M²Integer{K,K²} = M²Mat{K,K²,<:Integer}
 const M²Real{K,K²} = M²Mat{K,K²,<:Real}
 const M²Complex{K,K²} = M²Mat{K,K²,<:Complex}
