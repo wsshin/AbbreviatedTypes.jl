@@ -112,6 +112,11 @@ const SInt{K} = SVec{K,Int}
 const SFloat{K} = SVec{K,Float}
 const SComplexF{K} = SVec{K,ComplexF}
 
+SBool(x::Number...) = SBool{length(x)}(Bool.(x)...)
+SInt(x::Number...) = SInt{length(x)}(Int.(x)...)
+SFloat(x::Number...) = SFloat{length(x)}(Float.(x)...)
+SComplexF(x::Number...) = SComplexF{length(x)}(ComplexF.(x)...)
+
 # Vectors with abstract elements
 const SInteger{K} = SVec{K,<:Integer}
 const SReal{K} = SVec{K,<:Real}
@@ -145,6 +150,11 @@ const MInteger{K} = MVec{K,<:Integer}
 const MReal{K} = MVec{K,<:Real}
 const MComplex{K} = MVec{K,<:Complex}
 const MNumber{K} = MVec{K,<:Number}
+
+MBool(x::Number...) = MBool{length(x)}(Bool.(x)...)
+MInt(x::Number...) = MInt{length(x)}(Int.(x)...)
+MFloat(x::Number...) = MFloat{length(x)}(Float.(x)...)
+MComplexF(x::Number...) = MComplexF{length(x)}(ComplexF.(x)...)
 
 # Square matrices with concrete elements; superscript 2 reads "square".
 const M²Bool{K,K²} = M²Mat{K,K²,Bool}

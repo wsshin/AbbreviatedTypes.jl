@@ -34,4 +34,19 @@ using Test
     @test (sm = @SMatrix rand(Int,m,m); sm === S²Mat{m,m^2}(sm.data))
     @test (sm = @SMatrix rand(Float,m,m); sm === S²Mat{m,m^2}(sm.data))
     @test (sm = @SMatrix rand(ComplexF,m,m); sm === S²Mat{m,m^2}(sm.data))
+
+    @test typeof(SBool(0,1)) == SBool{2}
+    @test typeof(SInt(1,2,3)) == SInt{3}
+    @test typeof(SFloat(1,2,3)) == SFloat{3}
+    @test typeof(SComplexF(1,2,3)) == SComplexF{3}
+
+    @test typeof(SBool()) == SBool{0}
+    @test typeof(SInt()) == SInt{0}
+    @test typeof(SFloat()) == SFloat{0}
+    @test typeof(SComplexF()) == SComplexF{0}
+
+    @test typeof(MBool()) == MBool{0}
+    @test typeof(MInt()) == MInt{0}
+    @test typeof(MFloat()) == MFloat{0}
+    @test typeof(MComplexF()) == MComplexF{0}
 end
