@@ -6,7 +6,7 @@ using Reexport
 @reexport using StaticArrays
 
 export AbsFloat, Float, ComplexF
-export Tuple2, Tuple3, Tuple23
+export Tuple2, Tuple3, Tuple22, Tuple23, Tuple32
 export AbsVec, AbsMat, AbsArr
 export VecBool, VecInt, VecFloat, VecComplexF
 export AbsVecBool, AbsVecInt, AbsVecFloat, AbsVecComplexF
@@ -36,7 +36,9 @@ const ComplexF = Complex{Float}
 
 const Tuple2 = NTuple{2}
 const Tuple3 = NTuple{3}
+const Tuple22{T} = Tuple2{Tuple2{T}}
 const Tuple23{T} = Tuple2{Tuple3{T}}
+const Tuple32{T} = Tuple3{Tuple2{T}}
 
 const AbsVec = AbstractVector
 const AbsMat = AbstractMatrix
