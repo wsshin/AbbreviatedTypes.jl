@@ -17,12 +17,12 @@ export AbsMatInteger, AbsMatReal, AbsMatComplex, AbsMatNumber
 export ArrBool, ArrInt, ArrFloat, ArrComplexF
 export AbsArrBool, AbsArrInt, AbsArrFloat, AbsArrComplexF
 export AbsArrInteger, AbsArrReal, AbsArrComplex, AbsArrNumber
-export SVec, S²Mat
+export SVec, SMat, S²Mat
 export SBool, SInt, SFloat, SComplexF
 export SInteger, SReal, SComplex, SNumber
 export S²Bool, S²Int, S²Float, S²ComplexF
 export S²Integer, S²Real, S²Complex, S²Number
-export MVec, M²Mat
+export MVec, MMat, M²Mat
 export MBool, MInt, MFloat, MComplexF
 export MInteger, MReal, MComplex, MNumber
 export M²Bool, M²Int, M²Float, M²ComplexF
@@ -106,7 +106,8 @@ const AbsArrNumber{N} = AbsArr{<:Number,N}
 
 ## StaticArrays
 const SVec{K,T} = SVector{K,T}
-const S²Mat{K,K²,T} = SMatrix{K,K,T,K²}  # square static matrix
+const SMat{M,N,T,MN} = SMatrix{M,N,T,MN}
+const S²Mat{K,K²,T} = SMat{K,K,T,K²}  # square static matrix
 
 # Vectors with concrete elements
 const SBool{K} = SVec{K,Bool}
@@ -139,7 +140,8 @@ const S²Number{K,K²} = S²Mat{K,K²,<:Number}
 
 ## StaticArrays, mutable
 const MVec{K,T} = MVector{K,T}
-const M²Mat{K,K²,T} = MMatrix{K,K,T,K²}  # square mutable matrix
+const MMat{M,N,T,MN} = MMatrix{M,N,T,MN}
+const M²Mat{K,K²,T} = MMat{K,K,T,K²}  # square mutable matrix
 
 # Vectors with concrete elements
 const MBool{K} = MVec{K,Bool}

@@ -30,10 +30,16 @@ using Test
     @test (sv = @SVector rand(ComplexF,m); sv === SVec{m}(sv.data))
 
     m = 3
-    @test (sm = @SMatrix rand(Bool,m,m); sm === S²Mat{m,m^2}(sm.data))
-    @test (sm = @SMatrix rand(Int,m,m); sm === S²Mat{m,m^2}(sm.data))
-    @test (sm = @SMatrix rand(Float,m,m); sm === S²Mat{m,m^2}(sm.data))
-    @test (sm = @SMatrix rand(ComplexF,m,m); sm === S²Mat{m,m^2}(sm.data))
+    @test (sm = @SMatrix rand(Bool,m,m); sm === S²Mat{m}(sm.data))
+    @test (sm = @SMatrix rand(Int,m,m); sm === S²Mat{m}(sm.data))
+    @test (sm = @SMatrix rand(Float,m,m); sm === S²Mat{m}(sm.data))
+    @test (sm = @SMatrix rand(ComplexF,m,m); sm === S²Mat{m}(sm.data))
+
+    m, n = 3, 4
+    @test (sm = @SMatrix rand(Bool,m,n); sm === SMat{m,n}(sm.data))
+    @test (sm = @SMatrix rand(Int,m,n); sm === SMat{m,n}(sm.data))
+    @test (sm = @SMatrix rand(Float,m,n); sm === SMat{m,n}(sm.data))
+    @test (sm = @SMatrix rand(ComplexF,m,n); sm === SMat{m,n}(sm.data))
 
     @test typeof(SBool(0,1)) == SBool{2}
     @test typeof(SInt(1,2,3)) == SInt{3}
