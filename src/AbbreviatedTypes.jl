@@ -27,6 +27,7 @@ export MBool, MInt, MFloat, MComplexF
 export MInteger, MReal, MComplex, MNumber
 export M²Bool, M²Int, M²Float, M²ComplexF
 export M²Integer, M²Real, M²Complex, M²Number
+export τₐ, τᵣ
 
 ## Type aliases
 # Below, use Int instead of Int64 for compatibility with 32-bit systems (e.g., x86 in appveyor.yml).
@@ -171,5 +172,8 @@ const M²Integer{K,K²} = M²Mat{K,K²,<:Integer}
 const M²Real{K,K²} = M²Mat{K,K²,<:Real}
 const M²Complex{K,K²} = M²Mat{K,K²,<:Complex}
 const M²Number{K,K²} = M²Mat{K,K²,<:Number}
+
+const τₐ = eps(Float)  # default absolute tolerance
+const τᵣ = Base.rtoldefault(Float)  # dedault relative tolerance
 
 end
