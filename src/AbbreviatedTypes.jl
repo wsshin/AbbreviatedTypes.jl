@@ -5,54 +5,28 @@ module AbbreviatedTypes
 using Reexport
 @reexport using StaticArrays
 
-export AbsFloat, Float, ComplexF
-export Tuple2, Tuple3, Tuple22, Tuple23, Tuple32
-export AbsVec, AbsMat, AbsArr
-export VecBool, VecInt, VecFloat, VecComplexF
-export AbsVecBool, AbsVecInt, AbsVecFloat, AbsVecComplexF
-export AbsVecInteger, AbsVecReal, AbsVecComplex, AbsVecNumber
-export MatBool, MatInt, MatFloat, MatComplexF
-export AbsMatBool, AbsMatInt, AbsMatFloat, AbsMatComplexF
-export AbsMatInteger, AbsMatReal, AbsMatComplex, AbsMatNumber
-export ArrBool, ArrInt, ArrFloat, ArrComplexF
-export AbsArrBool, AbsArrInt, AbsArrFloat, AbsArrComplexF
-export AbsArrInteger, AbsArrReal, AbsArrComplex, AbsArrNumber
-export SVec, SMat, S²Mat
-export SBool, SInt, SFloat, SComplexF
-export SInteger, SReal, SComplex, SNumber
-export S²Bool, S²Int, S²Float, S²ComplexF
-export S²Integer, S²Real, S²Complex, S²Number
-export MVec, MMat, M²Mat
-export MBool, MInt, MFloat, MComplexF
-export MInteger, MReal, MComplex, MNumber
-export M²Bool, M²Int, M²Float, M²ComplexF
-export M²Integer, M²Real, M²Complex, M²Number
-export τₐ₀, τᵣ₀
+export @define_types_with
 
-function define_with(F::DataType)
+macro define_types_with(F)
+    return :( define_types_with(@__MODULE__, $F) )
+end
+
+function define_types_with(m::Module, F::DataType)
     F<:AbstractFloat || throw(ArgumentError("F = $F should be <:AbstractFloat."))
 
-    if isdefined(AbbreviatedTypes, :Float)  # AbbreviatedTypes.define_with() is already called
-        if Float == F  # define_with() is called with same F: this is allowed and do nothing
+    if isdefined(m, :Float)  # Float is already defined in m; assume it is defined by define_types_with()
+        if m.Float == F  # @define_types_with() is called with same F; this is allowed and do nothing
             return nothing
-        else  # define_with() is called with different F: this is not allowed
-            throw(ArgumentError("AbbreviatedTypes.define_with(F) is already called with F = $Float" *
-                "; cannot call it again with different F = $F."))
+        else  # @define_types_with() is called with different F; this is not allowed
+            throw(ArgumentError("AbbreviatedTypes.@define_types_with(F) is probably already called with F = $(m.Float) in $m" *
+                "; it cannot be called again with different F = $F."))
         end
     end
 
-    if F == Float64
-        @eval const Float = Float64
-    elseif F == Float32
-        @eval const Float = Float32
-    else
-        @assert F == Float16
-        @eval const Float = Float16
-    end
-
-    @eval begin
+    m.eval( :(begin
         ## Type aliases
         # Below, use Int instead of Int64 for compatibility with 32-bit systems (e.g., x86 in appveyor.yml).
+        const Float = $F
         const AbsFloat = AbstractFloat
         const ComplexF = Complex{Float}
 
@@ -196,7 +170,7 @@ function define_with(F::DataType)
 
         const τₐ₀ = eps(Float)  # default absolute tolerance
         const τᵣ₀ = Base.rtoldefault(Float)  # dedault relative tolerance
-    end
+    end) )
 
     return nothing
 end
