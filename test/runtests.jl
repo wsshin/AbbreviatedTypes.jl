@@ -1,4 +1,4 @@
-using AbbreviatedTypes
+using AbbreviatedTypes; @define_types_with(Float64)
 using Test
 
 @testset "AbbreviatedTypes.jl" begin
