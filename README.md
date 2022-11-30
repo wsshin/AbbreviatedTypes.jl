@@ -36,4 +36,4 @@ SComplexF(1, 2, 3)  # [1.0 + 0.0im, 2.0 + 0.0im, 3.0 + 0.0im]
 ```
 
 ## Absolute and relative error tolerances for floating point arithmetic
-In double-precision floating point arithmetic, `eps(Float64)` and `Base,rtoldefault(Float64)` are commonly used as absolute and relative error tolerances.  In addition to type aliases, AbbreviatedTypes defines `τₐ₀` and `τᵣ₀` as `eps(Float)` and `Base.rtoldefault(Float)`, so that they can be used as the absolute and relative error tolerances for the user-defined `Float` type through `@define_types_with()`.
+In double-precision floating point arithmetic, `eps(Float64)` and `Base.rtoldefault(Float64)` are commonly used as absolute and relative error tolerances.  In addition to type aliases, AbbreviatedTypes defines `τₐ₀` and `τᵣ₀` as `eps(Float)` and `Base.rtoldefault(Float)`, so that they can be used as the absolute and relative error tolerances for the user-defined `Float` type through `@define_types_with()`.
