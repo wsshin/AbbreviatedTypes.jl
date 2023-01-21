@@ -1,7 +1,7 @@
 name = "AbbreviatedTypes"
 uuid = "1766def0-c946-4dda-a59e-d0d07f8410f7"
 authors = ["Wonseok Shin <wsshin97@gmail.com> and contributors"]
-version = "0.3.3"
+version = "0.3.4"
 
 [deps]
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
