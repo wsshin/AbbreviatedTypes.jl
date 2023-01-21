@@ -105,6 +105,11 @@ function define_types_with(m::Module, F::DataType)
         const SMat{M,N,T,MN} = SMatrix{M,N,T,MN}
         const S²Mat{K,K²,T} = SMat{K,K,T,K²}  # square static matrix
 
+        ## Square SMatrices with specific dimensions
+        const S²Mat1{T} = S²Mat{1,1,T}
+        const S²Mat2{T} = S²Mat{2,4,T}
+        const S²Mat3{T} = S²Mat{3,9,T}
+
         # Vectors with concrete elements
         const SBool{K} = SVec{K,Bool}
         const SInt{K} = SVec{K,Int}
